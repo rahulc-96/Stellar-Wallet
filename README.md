@@ -64,4 +64,3 @@ https://www.stellar.org/developers/reference/
 
 
      
-# Stellar-Wallet

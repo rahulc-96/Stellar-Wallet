@@ -1,0 +1,129 @@
+
+<html>
+<head>
+	<title>crypto wallet</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta name="keywords" content="crypto wallet" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="//fonts.googleapis.com/css?family=Snippet" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/jquery.vide.min.js"></script>
+	<style type="text/css">
+	 .topcorner{
+	   position:absolute;
+	   top:0;
+	   right:0;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #8c2726;
+  background: rgba(0, 0, 0, 0.72);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+
+
+	  }
+
+   .table{
+	  background: rgba(0, 0, 0, 0.72);
+	  color: #ffffff;
+	  text-shadow: 0 1px 1px #8c2726;
+	  border: none;
+	  border-collapse: collapse;
+   }
+   .noborder
+   {
+   	border: none;
+   }
+	 
+	</style>
+   }
+   }
+</head>
+<body data-vide-bg="video/ship">
+	<div id='cssmenu'>
+		<ul>
+		   	<li class="active"><a href="/profile?home=1">Home</a></li>
+			<li><a id="iop" href="/profile?pay=1">Pay</a></li>
+			<li><a href="/pay">History</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
+	<% if (typeof username!== 'undefined') { %>
+	<div class="container" style="margin-top: 35px; background-color: rgba(0,0,0,.45)">
+		<center><h2 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;">ACCOUNT INFORMATION</h2></center><hr style="border-color: gray">
+		<center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">USER NAME:<br><% if (typeof username!== 'undefined') { %> <%=username  %><p> <% user_Name = username} else { %></p><p><%=user_Name %></p><% } %></h3></center>
+		<center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">EMAIL:<br><% if (typeof email!== 'undefined') { %> <%=email  %> <% eMail = email} else { %><p><%= eMail %></p><% } %></h3></center>
+		<center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">PUBLIC ADDRESS:<br><% if (typeof address!== 'undefined') { %> <%=address %> <% Address = address} else {%><p><%= Address %></p><% } %></h3></center>
+	</div> 
+	<% } %>
+	<font color='red'>
+			<script type="text/javascript">
+							document.write("<div class = 'topcorner'><h3><% if (typeof update !== 'undefined') { %><p><%= update %></p><% store = update } else { %><p><%= store %></p><% } %></h3></div>");	
+			</script>
+			<% if (typeof success !== 'undefined') { %><div class='container' style='margin-top:25px;background-color: rgba(0,0,0,.45);
+  color: #ffffff;text-shadow: 0 1px 1px #8c2726; '><center><h3>PAYMENT SUCESSFULL!!</h3></center></div><% } %>
+			
+			<% if (typeof failure !=='undefined') { %><div class='container' style='margin-top:25px;background-color: rgba(0,0,0,.45);
+  color: #ffffff;text-shadow: 0 1px 1px #8c2726; '><center><h3>PAYMENT UNSUCESSFULL!! INVALID DESTINATION ADDRESS</h3></center></div><% } %>
+						 
+	</font>
+	<div></div>
+	<script type="text/javascript">
+		var urlParams1 = new URLSearchParams(window.location.search);
+		if(urlParams1.get('home')==1){
+		        document.write('<div class="container" style="margin-top: 35px; background-color: rgba(0,0,0,.45)"><center><h2 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;">ACCOUNT INFORMATION</h2></center><hr style="border-color: gray"><center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">USER NAME: <br><p><%=user_Name %></p></h3></center><center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">EMAIL:<p><%= eMail %></p></h3></center><center><h3 style=" color: #ffffff;text-shadow: 0 1px 1px #8c2726;padding-top: 10px;">PUBLIC ADDRESS:<p><%= Address %></p></h3></center></div>  ');
+
+		    } 
+	</script>
+	<div></div>
+		<script> 
+		    var urlParams = new URLSearchParams(window.location.search);
+		    if(urlParams.get('pay')==1){
+		        document.write('<div class="login-form"><h2>Send Payments</h2><form action="/pay" method="POST"><span><i class="fa fa-user-o" aria-hidden="true"></i></span><input type="text" name="name" placeholder="enter receiver username"><span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span><input type="text" name="amount" placeholder="enter amount"><input type="submit" value="Pay"><header><h2></form><div class="login-password"></div><div class="login-input">					</div></div>');
+
+
+		    }  
+		</script>
+		
+
+     	<h2><% if (typeof data !== 'undefined') { %><table class="table" style="border-collapse: collapse;border:none;">
+														<thead>
+														      <tr>
+														        <th>Transaction ID</th>
+														        <th>Date and Time</th>
+														        <th>Transaction Fee</th>
+														      </tr>
+														    </thead>
+														<% if (typeof data1 !== 'undefined') { 
+																 for(var i=data1.length-1; i >=0; i--) { %>
+														   <tr>
+														     <td style="border:none;"><%= data1[i].id %></td>
+														     <td style="border:none;"><%= data1[i].created_at %></td>
+														     <td style="border:none;"><%= data1[i].fee_paid %></td>
+														   </tr>
+														   <% }} %>
+														   <% for(var i=data.length-1; i >=0; i--) { %>
+														   <tr>
+														     <td style="border:none;"><%= data[i].id %></td>
+														     <td style="border:none;"><%= data[i].created_at %></td>
+														     <td style="border:none;"><%= data[i].fee_paid %></td>
+														   </tr>
+														<% } %>
+													</table><% } %></h2>
+		
+		<br><br>
+		
+</body>
+</html>
